@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5ikarv7070ok"]
+[gd_scene load_steps=6 format=3 uid="uid://b5ikarv7070ok"]
 
 [ext_resource type="Script" path="res://TextToMorseScene.gd" id="1_3ncj4"]
 [ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://JetBrainsMonoNerdFontMonoRegular.ttf" id="2_5o1gi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqyur"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxvou"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4p84"]
+bg_color = Color(0, 0, 0, 0.678431)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="TextToMorseScene" type="Node2D"]
 script = ExtResource("1_3ncj4")
@@ -15,6 +36,10 @@ color = Color(0.192157, 0.192157, 0.317647, 1)
 [node name="ParentMarginContainer" type="MarginContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 688.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
 
 [node name="ContentVerticalContainer" type="VBoxContainer" parent="ParentMarginContainer"]
 layout_mode = 2
@@ -27,3 +52,91 @@ theme_override_font_sizes/font_size = 125
 text = "Text to Morse"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="IOHorizontalContainer" type="HBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InputTextEdit" type="TextEdit" parent="ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Enter text to hear in morse"
+highlight_all_occurrences = true
+highlight_current_line = true
+scroll_smooth = true
+
+[node name="OutputTextEdit" type="TextEdit" parent="ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Output will appear here"
+editable = false
+highlight_all_occurrences = true
+highlight_current_line = true
+scroll_smooth = true
+
+[node name="ButtonsHorizontalContainer" type="HBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="GenerateButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer"]
+layout_mode = 2
+
+[node name="GenerateButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/GenerateButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_5o1gi")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqyur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kxvou")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l4p84")
+text = "Generate"
+
+[node name="PlayButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/PlayButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_5o1gi")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqyur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kxvou")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l4p84")
+text = "Play"
+
+[node name="PauseButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer"]
+layout_mode = 2
+
+[node name="PauseButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/PauseButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_5o1gi")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqyur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kxvou")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l4p84")
+text = "Pause"
+
+[node name="ResumeButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/ResumeButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_5o1gi")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqyur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kxvou")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l4p84")
+text = "Resume"
+
+[node name="Morse" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/GenerateButtonMarginContainer/GenerateButton" to="." method="_on_generate_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/PlayButtonMarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/PauseButtonMarginContainer/PauseButton" to="." method="_on_pause_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsHorizontalContainer/ResumeButtonMarginContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
