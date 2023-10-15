@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb4i75ikns07x"]
+
+[ext_resource type="Script" path="res://GlobalVariables.gd" id="1_iec42"]
+
+[node name="GlobalVariables" type="Node"]
+script = ExtResource("1_iec42")
+frequency = 800
+wpm = 12
+musicVolume = 0.3
+soundVolume = 0.7
+musicBusStr = "Music"
+soundBusStr = "Sound"
+muteWhenUnfocused = true

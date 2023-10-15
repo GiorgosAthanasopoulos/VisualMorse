@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://voh0b3r73amn"]
+
+[ext_resource type="Script" path="res://MainMenuScene.gd" id="1_4qb5r"]
+[ext_resource type="PackedScene" uid="uid://b1vqnb5p5p264" path="res://LobbyScene.tscn" id="2_sah04"]
+[ext_resource type="PackedScene" uid="uid://d3h7wj08p1vs1" path="res://OptionsScene.tscn" id="3_oa5am"]
+[ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://JetBrainsMonoNerdFontMonoRegular.ttf" id="4_kdar0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh571"]
+bg_color = Color(0, 0, 0, 0.396078)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djera"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sk5kq"]
+content_margin_right = 1.0
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenuScene" type="Node2D"]
+script = ExtResource("1_4qb5r")
+lobbyScene = ExtResource("2_sah04")
+optionsScene = ExtResource("3_oa5am")
+
+[node name="BackgroundImage" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.192157, 0.192157, 0.317647, 1)
+
+[node name="ParentMarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 688.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 100
+
+[node name="ContentVerticalContainer" type="VBoxContainer" parent="ParentMarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_kdar0")
+theme_override_font_sizes/font_size = 125
+text = "Visual Morse
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsVerticalContainer" type="VBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="PlayButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="PlayButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/PlayButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_kdar0")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_yh571")
+theme_override_styles/hover = SubResource("StyleBoxFlat_djera")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sk5kq")
+text = "Play"
+
+[node name="OptionsButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="OptionsButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/OptionsButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_kdar0")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_yh571")
+theme_override_styles/hover = SubResource("StyleBoxFlat_djera")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sk5kq")
+text = "Options"
+
+[node name="ExitButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ExitButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/ExitButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_kdar0")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_yh571")
+theme_override_styles/hover = SubResource("StyleBoxFlat_djera")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sk5kq")
+text = "Exit
+"
+
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/PlayButtonMarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/OptionsButtonMarginContainer/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonsVerticalContainer/ExitButtonMarginContainer/ExitButton" to="." method="_on_exit_button_button_up"]

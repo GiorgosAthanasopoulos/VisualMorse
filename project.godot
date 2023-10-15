@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Visual Morse"
+run/main_scene="res://MainMenuScene.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalVariablesScene="*res://GlobalVariablesScene.tscn"
+BackgroundMusicScene="*res://BackgroundMusicScene.tscn"
+
+[display]
+
+window/size/resizable=false
+
+[filesystem]
+
+import/blender/enabled=false
