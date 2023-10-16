@@ -6,10 +6,12 @@ extends Node2D
 @export var textToMorseScene : String
 @export var copyPracticeScene : String
 @export var sendPracticeScene : String
+
 var freeToGoBack : bool = false
 
+
 func _ready():
-	$"/root/UtilsScene".resume_music()
+	Utils.resume_music()
 
 
 func _process(_delta: float) -> void:

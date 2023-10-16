@@ -2,11 +2,12 @@ extends Node2D
 
 
 @export var lobbyScene : String
+
 var morsePosition: float = 0.0
 
 
 func _ready():
-	$"/root/UtilsScene".pause_music()
+	Utils.pause_music()
 
 
 func _process(_delta: float) -> void:
@@ -15,10 +16,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_generate_button_button_up() -> void:
-	$"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/OutputTextEdit".text = $"/root/UtilsScene".text_to_morse($"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/InputTextEdit".text)
-	$"/root/UtilsScene".generate_morse_audio($"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/InputTextEdit".text)
-	$Morse.stream = $"/root/UtilsScene".load_audio_stream_from_file($"/root/GlobalVariablesScene".morseFilename)
-	
+	$"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/OutputTextEdit".text = Utils.text_to_morse($"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/InputTextEdit".text)
+	Utils.generate_morse_audio($"ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer/InputTextEdit".text)
+	$Morse.stream = Utils.load_audio_stream_from_file(GlobalVariables.morseFilename)
+
 
 func _on_play_button_button_up() -> void:
 	$Morse.play()

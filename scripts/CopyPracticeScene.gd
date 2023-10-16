@@ -3,8 +3,9 @@ extends Node2D
 
 @export var lobbyScene : String
 
+
 func _ready():
-	$"/root/UtilsScene".pause_music()
+	Utils.pause_music()
 
 
 func _process(_delta: float) -> void:

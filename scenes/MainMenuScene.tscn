@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://voh0b3r73amn"]
 
-[ext_resource type="Script" path="res://MainMenuScene.gd" id="1_4qb5r"]
-[ext_resource type="PackedScene" uid="uid://b1vqnb5p5p264" path="res://LobbyScene.tscn" id="2_sah04"]
-[ext_resource type="PackedScene" uid="uid://d3h7wj08p1vs1" path="res://OptionsScene.tscn" id="3_oa5am"]
-[ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://JetBrainsMonoNerdFontMonoRegular.ttf" id="4_kdar0"]
+[ext_resource type="Script" path="res://scripts/MainMenuScene.gd" id="1_4qb5r"]
+[ext_resource type="PackedScene" uid="uid://b1vqnb5p5p264" path="res://scenes/LobbyScene.tscn" id="2_sah04"]
+[ext_resource type="PackedScene" uid="uid://d3h7wj08p1vs1" path="res://scenes/OptionsScene.tscn" id="3_oa5am"]
+[ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://assets/fonts/JetBrainsMonoNerdFontMonoRegular.ttf" id="4_kdar0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh571"]
 bg_color = Color(0, 0, 0, 0.396078)

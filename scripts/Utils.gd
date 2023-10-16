@@ -60,13 +60,13 @@ func _ready():
 
 
 func set_music_volume(value: float) -> void:
-	$"/root/GlobalVariablesScene".musicVolume = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index($"/root/GlobalVariablesScene".musicBusStr), linear_to_db(value))
+	GlobalVariables.musicVolume = value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(GlobalVariables.musicBusStr), linear_to_db(value))
 
 
 func set_sound_volume(value: float) -> void:
-	$"/root/GlobalVariablesScene".soundVolume = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index($"/root/GlobalVariablesScene".soundBusStr), linear_to_db(value))
+	GlobalVariables.soundVolume = value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(GlobalVariables.soundBusStr), linear_to_db(value))
 
 
 func set_master_volume(value: float) -> void:
@@ -118,7 +118,7 @@ func generate_morse_audio(morse: String) -> void:
 		if not text_to_morse_map.has(ch):
 			morse = morse.replace(ch, "")
 	var cmd = "./pycw.exe"
-	var args = ["-t", morse, "-s", $"/root/GlobalVariablesScene".wpm, "-n", $"/root/GlobalVariablesScene".frequency, "-v", $"/root/GlobalVariablesScene".soundVolume, "-r", $"/root/GlobalVariablesScene".sampleRate, "-o", $"/root/GlobalVariablesScene".morseFilename.replace("res://", "./")]
+	var args = ["-t", morse, "-s", GlobalVariables.wpm, "-n", GlobalVariables.frequency, "-v", GlobalVariables.soundVolume, "-r", GlobalVariables.sampleRate, "-o", GlobalVariables.morseFilename.replace("res://", "./")]
 	var output = []
 	OS.execute(cmd, args, output, true)
 	for line in output:
@@ -129,16 +129,16 @@ func load_audio_stream_from_file(filePath: String) -> AudioStream:
 	var audioBytes = FileAccess.get_file_as_bytes(filePath)
 	var audioStream = AudioStreamWAV.new()
 	audioStream.format = 1
-	audioStream.mix_rate = $"/root/GlobalVariablesScene".sampleRate
+	audioStream.mix_rate = GlobalVariables.sampleRate
 	audioStream.stereo = true
 	audioStream.data = audioBytes
 	return audioStream
 
 
 func pause_music() -> void:
-	position = $"/root/BackgroundMusicScene".get_playback_position()
-	$"/root/BackgroundMusicScene".stop()
+	position = BackgroundMusicScene.get_playback_position()
+	BackgroundMusicScene.stop()
 
 
 func resume_music() -> void:
-	$"/root/BackgroundMusicScene".play(position)
+	BackgroundMusicScene.play(position)

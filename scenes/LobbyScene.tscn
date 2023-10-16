@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1vqnb5p5p264"]
 
-[ext_resource type="Script" path="res://LobbyScene.gd" id="1_dq81b"]
-[ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://JetBrainsMonoNerdFontMonoRegular.ttf" id="2_n2dhg"]
+[ext_resource type="Script" path="res://scripts/LobbyScene.gd" id="1_dq81b"]
+[ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://assets/fonts/JetBrainsMonoNerdFontMonoRegular.ttf" id="2_n2dhg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oerf"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -26,11 +26,11 @@ corner_radius_bottom_left = 10
 
 [node name="LobbyScene" type="Node2D"]
 script = ExtResource("1_dq81b")
-mainMenuScene = "res://MainMenuScene.tscn"
-morseToTextScene = "res://MorseToTextScene.tscn"
-textToMorseScene = "res://TextToMorseScene.tscn"
-copyPracticeScene = "res://CopyPracticeScene.tscn"
-sendPracticeScene = "res://SendPracticeScene.tscn"
+mainMenuScene = "res://scenes/MainMenuScene.tscn"
+morseToTextScene = "res://scenes/MorseToTextScene.tscn"
+textToMorseScene = "res://scenes/TextToMorseScene.tscn"
+copyPracticeScene = "res://scenes/CopyPracticeScene.tscn"
+sendPracticeScene = "res://scenes/SendPracticeScene.tscn"
 
 [node name="BackgroundImage" type="ColorRect" parent="."]
 offset_right = 1152.0

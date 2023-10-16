@@ -11,23 +11,25 @@ config_version=5
 [application]
 
 config/name="Visual Morse"
-run/main_scene="res://MainMenuScene.tscn"
+config/description="A game to practice @wolfpackgame visual morse code."
+run/main_scene="res://scenes/MainMenuScene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/images/favicon.png"
+config/icon="res://assets/images/favicon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
 [autoload]
 
-GlobalVariablesScene="*res://GlobalVariablesScene.tscn"
-UtilsScene="*res://UtilsScene.tscn"
-BackgroundMusicScene="*res://BackgroundMusicScene.tscn"
+GlobalVariables="*res://scripts/GlobalVariables.gd"
+Utils="*res://scripts/Utils.gd"
+BackgroundMusicScene="*res://scenes/BackgroundMusicScene.tscn"
 
 [display]
 
 window/size/resizable=false
-
-[dotnet]
-
-project/assembly_name="Visual Morse"
 
 [filesystem]
 
