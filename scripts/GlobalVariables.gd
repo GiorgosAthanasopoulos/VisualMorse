@@ -9,4 +9,4 @@ extends Node
 @export var soundBusStr : String = "Sound"
 @export var muteWhenUnfocused : bool = true
 @export var sampleRate : int = 48_000
-@export var morseFilename: String = "./assets/sound/morse.wav"
+@export var morseFilename: String = "./morse.wav"

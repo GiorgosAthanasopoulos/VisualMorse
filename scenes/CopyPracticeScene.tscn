@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsiifwypkv052"]
+[gd_scene load_steps=6 format=3 uid="uid://bsiifwypkv052"]
 
 [ext_resource type="Script" path="res://scripts/CopyPracticeScene.gd" id="1_u63d1"]
 [ext_resource type="FontFile" uid="uid://ddxvv4lqu6s2u" path="res://assets/fonts/JetBrainsMonoNerdFontMonoRegular.ttf" id="2_8q0w1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djn65"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t32ex"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hpov"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="CopyPracticeScene" type="Node2D"]
 script = ExtResource("1_u63d1")
@@ -15,6 +36,10 @@ color = Color(0.192157, 0.192157, 0.317647, 1)
 [node name="ParentMarginContainer" type="MarginContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 688.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
 
 [node name="ContentVerticalContainer" type="VBoxContainer" parent="ParentMarginContainer"]
 layout_mode = 2
@@ -27,3 +52,101 @@ theme_override_font_sizes/font_size = 125
 text = "Copy Practice"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ModeSelectionOptionButton" type="OptionButton" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+item_count = 6
+selected = 0
+popup/item_0/text = "Alphabet"
+popup/item_0/id = 0
+popup/item_1/text = "Numbers"
+popup/item_1/id = 1
+popup/item_2/text = "Prosigns"
+popup/item_2/id = 2
+popup/item_3/text = "Alphabet+Numbers"
+popup/item_3/id = 3
+popup/item_4/text = "Alphabet+Numbers+Prosigns"
+popup/item_4/id = 4
+popup/item_5/text = "Random"
+popup/item_5/id = 5
+
+[node name="IOHorizontalContainer" type="HBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InputTextEdit" type="TextEdit" parent="ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Input text will appear here."
+editable = false
+
+[node name="OutputTextEdit" type="TextEdit" parent="ParentMarginContainer/ContentVerticalContainer/IOHorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Output text (answer) should be written here."
+
+[node name="ButtonHorizontalContainer" type="HBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="GenerateButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer"]
+layout_mode = 2
+
+[node name="GenerateButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/GenerateButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Generate"
+
+[node name="PlayButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/PlayButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Play"
+
+[node name="StopButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer"]
+layout_mode = 2
+
+[node name="StopButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/StopButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Stop"
+
+[node name="VerifyButtonMarginContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer"]
+layout_mode = 2
+
+[node name="VerifyButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/VerifyButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Verify"
+
+[node name="Morse" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/GenerateButtonMarginContainer/GenerateButton" to="." method="_on_generate_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/PlayButtonMarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/StopButtonMarginContainer/StopButton" to="." method="_on_stop_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/VerifyButtonMarginContainer/VerifyButton" to="." method="_on_verify_button_button_up"]
