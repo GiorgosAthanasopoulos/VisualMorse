@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d24do58fhyr6k"
-path="res://.godot/imported/morse.wav-d7153ec76f4282fa67184de4469e8572.sample"
+uid="uid://b3n4j7i3rqv6c"
+path="res://.godot/imported/morse.wav-610c8a7d4b54a5b67368a607f7fdbac9.sample"
 
 [deps]
 
-source_file="res://morse.wav"
-dest_files=["res://.godot/imported/morse.wav-d7153ec76f4282fa67184de4469e8572.sample"]
+source_file="res://assets/sound/morse.wav"
+dest_files=["res://.godot/imported/morse.wav-610c8a7d4b54a5b67368a607f7fdbac9.sample"]
 
 [params]
 

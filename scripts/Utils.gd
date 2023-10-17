@@ -1,6 +1,7 @@
 extends Node
 
 
+const PYCW: String = "./assets/utils/pycw.exe"
 var text_to_morse_map : Dictionary = {
 	"a": ".-",
 	"b": "-...",
@@ -117,7 +118,7 @@ func generate_morse_audio(morse: String) -> void:
 	for ch in morse.to_lower():
 		if not text_to_morse_map.has(ch):
 			morse = morse.replace(ch, "")
-	var cmd = "./pycw.exe"
+	var cmd = PYCW
 	var args = ["-t", morse, "-s", GlobalVariables.wpm, "-n", GlobalVariables.frequency, "-v", GlobalVariables.soundVolume, "-r", GlobalVariables.sampleRate, "-o", GlobalVariables.morseFilename.replace("res://", "./")]
 	var output = []
 	OS.execute(cmd, args, output, true)
