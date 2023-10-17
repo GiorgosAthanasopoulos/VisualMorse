@@ -12,3 +12,7 @@ Implemented:
 TODO:
   - Send Practice
   - Multiplayer (1 global server to begin with)
+
+## Disclaimer
+
+This app uses ```./assets/utils/pycw.exe``` (Python Continuous Wave) in order to generate morse audio files. Binary is compiled using source code from [Github](https://github.com/bigsk05/pycw) (Apache License).
