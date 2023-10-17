@@ -7,7 +7,7 @@ A game to practice @wolfpackgame visual morse code.
 Implemented:
   - Morse to Text
   - Text to Morse
-  - Copy Practice (25%)
+  - Copy Practice (66%)
 
 TODO:
   - Send Practice
