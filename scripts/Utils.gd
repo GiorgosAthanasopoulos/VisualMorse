@@ -54,7 +54,7 @@ var reverse_prosign_map: Dictionary = {}
 var position: float = 0.0
 
 
-func _ready():
+func _ready() -> void:
 	for key in text_to_morse_map:
 		morse_to_text_map[text_to_morse_map[key]] = key
 	for key in prosign_map:
@@ -120,6 +120,10 @@ func morse_to_text(morse: String) -> String:
 
 
 func generate_morse_audio(morse: String) -> void:
+	var sound_dir: String = "./assets/sound"
+	if not DirAccess.dir_exists_absolute(sound_dir):
+		DirAccess.make_dir_absolute(sound_dir)
+
 	for ch in morse.to_lower():
 		if not text_to_morse_map.has(ch):
 			morse = morse.replace(ch, "")
@@ -266,7 +270,7 @@ func generate_random_prosigns() -> String:
 	var res: String = ""
 
 	while len(res) < length:
-		var rand_prosign: String = prosign_map.keys()[get_rand_int(0, len(prosign_map.keys())-1)]
+		var rand_prosign: String = prosign_map.keys()[get_rand_int(0, len(prosign_map.keys()) - 1)]
 		res += rand_prosign + " "
 
 	return res.strip_edges()

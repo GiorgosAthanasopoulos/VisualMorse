@@ -6,7 +6,7 @@ var CopyResults = preload("res://scripts/CopyResults.gd")
 var solution: String
 
 
-func _ready():
+func _ready() -> void:
 	Utils.pause_music()
 
 

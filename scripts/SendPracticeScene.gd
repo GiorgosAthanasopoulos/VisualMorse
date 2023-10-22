@@ -1,10 +1,9 @@
 extends Node2D
 
+@export var lobbyScene: String
 
-@export var lobbyScene : String
 
-
-func _ready():
+func _ready() -> void:
 	Utils.pause_music()
 
 

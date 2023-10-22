@@ -1,16 +1,15 @@
 extends Node2D
 
+@export var mainMenuScene: String
+@export var morseToTextScene: String
+@export var textToMorseScene: String
+@export var copyPracticeScene: String
+@export var sendPracticeScene: String
 
-@export var mainMenuScene : String 
-@export var morseToTextScene : String
-@export var textToMorseScene : String
-@export var copyPracticeScene : String
-@export var sendPracticeScene : String
-
-var freeToGoBack : bool = false
+var freeToGoBack: bool = false
 
 
-func _ready():
+func _ready() -> void:
 	Utils.resume_music()
 
 
