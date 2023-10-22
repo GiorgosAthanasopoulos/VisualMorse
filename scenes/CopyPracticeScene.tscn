@@ -55,7 +55,7 @@ vertical_alignment = 1
 
 [node name="ModeSelectionOptionButton" type="OptionButton" parent="ParentMarginContainer/ContentVerticalContainer"]
 layout_mode = 2
-item_count = 6
+item_count = 5
 selected = 0
 popup/item_0/text = "Alphabet"
 popup/item_0/id = 0
@@ -65,10 +65,8 @@ popup/item_2/text = "Prosigns"
 popup/item_2/id = 2
 popup/item_3/text = "Alphabet+Numbers"
 popup/item_3/id = 3
-popup/item_4/text = "Alphabet+Numbers+Prosigns"
+popup/item_4/text = "Random"
 popup/item_4/id = 4
-popup/item_5/text = "Random"
-popup/item_5/id = 5
 
 [node name="IOHorizontalContainer" type="HBoxContainer" parent="ParentMarginContainer/ContentVerticalContainer"]
 layout_mode = 2
@@ -143,10 +141,137 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
 text = "Verify"
 
+[node name="RevealButtonMargincContainer" type="MarginContainer" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer"]
+layout_mode = 2
+
+[node name="RevealButton" type="Button" parent="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/RevealButtonMargincContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Reveal"
+
 [node name="Morse" type="AudioStreamPlayer" parent="."]
 bus = &"Sound"
+
+[node name="SuccessPanel" type="PopupPanel" parent="."]
+initial_position = 2
+size = Vector2i(848, 344)
+always_on_top = true
+
+[node name="ColorRect" type="ColorRect" parent="SuccessPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 844.0
+offset_bottom = 340.0
+color = Color(0, 1, 0, 1)
+
+[node name="ParentMarginContainer" type="MarginContainer" parent="SuccessPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 844.0
+offset_bottom = 340.0
+
+[node name="ContentVerticalContainer" type="VBoxContainer" parent="SuccessPanel/ParentMarginContainer"]
+layout_mode = 2
+
+[node name="SuccessLabel" type="Label" parent="SuccessPanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 60
+text = "Success!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="SuccessPanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 30
+text = "Good job! You got everything right!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButtonMarginContainer" type="MarginContainer" parent="SuccessPanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="SuccessPanel/ParentMarginContainer/ContentVerticalContainer/CloseButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Close"
+
+[node name="FailurePanel" type="PopupPanel" parent="."]
+initial_position = 2
+size = Vector2i(638, 344)
+always_on_top = true
+
+[node name="ColorRect" type="ColorRect" parent="FailurePanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 634.0
+offset_bottom = 340.0
+color = Color(1, 0, 0, 1)
+
+[node name="ParentMarginContainer" type="MarginContainer" parent="FailurePanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 634.0
+offset_bottom = 340.0
+
+[node name="ContentVerticalContainer" type="VBoxContainer" parent="FailurePanel/ParentMarginContainer"]
+layout_mode = 2
+
+[node name="FailureLabel" type="Label" parent="FailurePanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+text = "Failure!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="FailurePanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 30
+text = "Good try! Here is how you went:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultsTextEdit" type="TextEdit" parent="FailurePanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Your test results will appear here:"
+editable = false
+
+[node name="CloseButtonMarginContainer" type="MarginContainer" parent="FailurePanel/ParentMarginContainer/ContentVerticalContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="FailurePanel/ParentMarginContainer/ContentVerticalContainer/CloseButtonMarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_8q0w1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_djn65")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8hpov")
+text = "Close"
 
 [connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/GenerateButtonMarginContainer/GenerateButton" to="." method="_on_generate_button_button_up"]
 [connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/PlayButtonMarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/StopButtonMarginContainer/StopButton" to="." method="_on_stop_button_button_up"]
 [connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/VerifyButtonMarginContainer/VerifyButton" to="." method="_on_verify_button_button_up"]
+[connection signal="button_up" from="ParentMarginContainer/ContentVerticalContainer/ButtonHorizontalContainer/RevealButtonMargincContainer/RevealButton" to="." method="_on_reveal_button_button_up"]
+[connection signal="button_up" from="SuccessPanel/ParentMarginContainer/ContentVerticalContainer/CloseButtonMarginContainer/CloseButton" to="." method="_on_close_button_button_up"]
+[connection signal="button_up" from="FailurePanel/ParentMarginContainer/ContentVerticalContainer/CloseButtonMarginContainer/CloseButton" to="." method="_on_failure_close_button_button_up"]
